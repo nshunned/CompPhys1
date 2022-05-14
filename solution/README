@@ -1,0 +1,16 @@
+expFit.cpp : fit using a double gaussina model
+expFit2.cpp : fit using the Gumbel distribution
+              This is not a good model, it shifts the peak in the
+	      model given by Wikipedia, then adds a normalization factor
+	      4 parameters in total, but one parameter is redundant
+expFit2b.cpp : Here an improved version of the Gumbel is used.
+               Only 3 parameters are needed for the function
+	       This version also uses a MINUIT method to plot a chi2 contour
+
+The fits use the datafile distros.root.
+Curiously the p-value comes out very high here for the Gumbel fit.
+Remember, the average expected p-values for a fit matching the data can
+be calculated, but the actual value in any single fit can end up over
+a wide range!
+distros_1.root contains alternate data (same distribution, just another
+random sampling).

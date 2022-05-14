@@ -1,0 +1,16 @@
+ROOTCFLAGS = $(shell root-config --cflags)
+ROOTLIBS   = $(shell root-config --libs)
+ROOTGLIBS  = $(shell root-config --glibs)
+CXXFLAGS  += $(ROOTCFLAGS)
+LIBS       = $(ROOTLIBS) 
+GLIBS      = $(ROOTGLIBS)
+GXX	   = g++ -Wall -O3
+
+RKdemo:  RKdemo.cpp RK
+	$(GXX) -o RKdemo RKdemo.cpp $(ROOTCFLAGS) $(LIBS) $(ROOTGLIBS) RK.o
+
+RK: RK.cpp RK.hpp
+	$(GXX) -c -o RK.o RK.cpp $(ROOTCFLAGS) 
+
+clean:
+	rm -f RKdemo RK.o
